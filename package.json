@@ -13,6 +13,7 @@
     },
     "dependencies": {
         "20": "^1.0.0",
+        "@sentry/browser": "^7.40.0",
         "@tailwindcss/line-clamp": "^0.4.4",
         "autoprefixer": "^10.4.16",
         "npm": "^10.2.5",
