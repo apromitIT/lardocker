@@ -2,14 +2,16 @@
 
 @section('title', 'Восстановить пароль')
 @section('content')
-    <x-forms.auth-forms title="Восстановить пароль" action="" method="POST">
+    <x-forms.auth-forms title="Восстановить пароль" action="{{ route('password.update') }}" method="POST">
         @csrf
 
+        <input type="hidden" name="token" value="{{ $token }}"/>
         <x-forms.text-input
             name="email"
             type="email"
             placeholder="E-mail"
             required="true"
+            value="{{ request('email') }}"
             :isError="$errors->has('email')">
         </x-forms.text-input>
         @error('email')
@@ -47,6 +49,8 @@
         <x-forms.primory-button>
             Обновить пароль
         </x-forms.primory-button>
+
+        <x-slot:socialAuth></x-slot:socialAuth>
 
         <x-slot:buttons>
         </x-slot:buttons>
