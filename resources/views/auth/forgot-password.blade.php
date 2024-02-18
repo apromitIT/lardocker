@@ -2,7 +2,7 @@
 
 @section('title', 'Забыли пароль')
 @section('content')
-    <x-forms.auth-forms title="Забыли пароль" action="" method="POST">
+    <x-forms.auth-forms title="Забыли пароль" action="{{ route('password.email') }}" method="POST">
         @csrf
 
         <x-forms.text-input
@@ -21,6 +21,8 @@
         <x-forms.primory-button>
             Отправить
         </x-forms.primory-button>
+
+        <x-slot:socialAuth></x-slot:socialAuth>
 
         <x-slot:buttons>
             <div class="space-y-3 mt-5">

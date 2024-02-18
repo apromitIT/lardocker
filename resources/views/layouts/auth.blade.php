@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Vite;
 ?>
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -17,20 +16,24 @@ use Illuminate\Support\Facades\Vite;
 
 </head>
 <body class="antialiased">
-    <main class="md:min-h-screen md:flex md:items-center md:justify-center py-16 lg:py-20">
-        <div class="container">
+@if(session()->has('message'))
+    {{ session('message') }}
+@endif
+<main class="md:min-h-screen md:flex md:items-center md:justify-center py-16 lg:py-20">
+    <div class="container">
 
-            <!-- Page heading -->
-            <div class="text-center">
-                <a href="{{ route('home') }}" class="inline-block" rel="home">
-                    <img src="{{ Vite::image('logo.svg') }}" class="w-[148px] md:w-[201px] h-[36px] md:h-[50px]" alt="CutCode">
-{{--                    <img src="{{ Vite::asset('resources/images/logo.svg') }}" class="w-[148px] md:w-[201px] h-[36px] md:h-[50px]" alt="CutCode">--}}
-                </a>
-            </div>
-
-            @yield('content')
-
+        <!-- Page heading -->
+        <div class="text-center">
+            <a href="{{ route('home') }}" class="inline-block" rel="home">
+                <img src="{{ Vite::image('logo.svg') }}" class="w-[148px] md:w-[201px] h-[36px] md:h-[50px]"
+                     alt="CutCode">
+                {{--                    <img src="{{ Vite::asset('resources/images/logo.svg') }}" class="w-[148px] md:w-[201px] h-[36px] md:h-[50px]" alt="CutCode">--}}
+            </a>
         </div>
-    </main>
+
+        @yield('content')
+
+    </div>
+</main>
 </body>
 </html>
